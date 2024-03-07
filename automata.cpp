@@ -6,7 +6,7 @@
 #define AZUL "\033[30;44m"	 // fondo azul
 #define RESET "\033[0m"			 // restablecer colores a los predeterminados
 using namespace std;
-const int TAM = 8;
+const int TAM = 15;
 const int SIZE = 31;
 // 78 clave para ver los cuadros
 
@@ -34,11 +34,11 @@ void mostrar(const bool state[])
 	{
 		if (state[i])
 		{
-			cout << BLANCO << " " << RESET;
+			cout << BLANCO << "  " << RESET;
 		}
 		else
 		{
-			cout << VERDE << " " << RESET;
+			cout << VERDE << "  " << RESET;
 		}
 	}
 	cout << endl;
@@ -58,35 +58,35 @@ int posicion(string cosa)
 {
 	if (cosa == "000")
 	{
-		return 0;
+		return 7;
 	}
 	else if (cosa == "001")
 	{
-		return 1;
+		return 6;
 	}
 	else if (cosa == "010")
 	{
-		return 2;
+		return 5;
 	}
 	else if (cosa == "011")
 	{
-		return 3;
+		return 4;
 	}
 	else if (cosa == "100")
 	{
-		return 4;
+		return 3;
 	}
 	else if (cosa == "101")
 	{
-		return 5;
+		return 2;
 	}
 	else if (cosa == "110")
 	{
-		return 6;
+		return 1;
 	}
 	else if (cosa == "111")
 	{
-		return 7;
+		return 0;
 	}
 	else
 	{
@@ -105,6 +105,7 @@ int derecha(bool array[], int index)
 
 void Modifica(bool input[], bool output[], const bool regla[])
 {
+	// crear una map con las reglas
 	int izq, cen, der;
 	for (int i = 0; i < SIZE; i++)
 	{
